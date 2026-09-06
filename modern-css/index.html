@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Modern CSS</h1>
+        <button
+            class="hamburger"
+            id="menuButton"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" id="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+    <main>
+        <section class="section">
+            <h2>Loading Spinner</h2>
+            <div class="spinner"></div>
+        </section>
+        <section class="section">
+            <h2>Flip Card</h2>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Front</h3>
+                        <p>Hover on me</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Back</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Skeleton Loading</h2>
+            <div class="skeleton-card">
+                <div class="skeleton-image"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navigation = document.getElementById("navigation");
+        menuButton.addEventListener("click", function () {
+            menuButton.classList.toggle("active");
+            navigation.classList.toggle("active");
+            const isOpen = menuButton.classList.contains("active");
+            menuButton.setAttribute("aria-expanded", isOpen);
+        });
+    </script>
+
+</body>
+</html>

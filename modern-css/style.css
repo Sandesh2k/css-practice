@@ -1,0 +1,160 @@
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #dcdcdc;
+    color: #222;
+}
+.section{
+    padding: 40px 20px;
+    text-align: center;
+}
+.header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #7c7c7c;
+    color: white;
+}
+.header h1{
+    margin: 0;
+}
+.hamburger{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.hamburger span{
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+.hamburger.active span:nth-child(1){
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3){
+    transform: translateY(-9px) rotate(-45deg);
+}
+.nav{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+}
+.nav.active{
+    display: flex;
+}
+.nav a{
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    border-top: 1px solid #444;
+}
+.nav a:hover{
+    background-color: #444;
+}
+.spinner{
+    width: 50px;
+    height: 50px;
+    margin: 30px auto;
+    border: 5px solid #ddd;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.flip-card{
+    width: 250px;
+    height: 180px;
+    margin: 30px auto;
+    perspective: 1000px;
+}
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner{
+    transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+.flip-card-front{
+    background-color: #6b6b6b;
+    color: white;
+}
+.flip-card-back{
+    background-color: #222;
+    color: white;
+
+    transform: rotateY(180deg);
+}
+.skeleton-card{
+    width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.skeleton-image{
+    background-color: #434343;
+    animation: skeleton-loading 1.5s infinite;
+}
+.skeleton-image{
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+@keyframes skeleton-loading{
+    0%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.5;
+    }
+}
